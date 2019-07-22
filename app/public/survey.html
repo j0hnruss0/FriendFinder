@@ -24,8 +24,11 @@
           <h4>Name (Required)</h4>
           <input type="text" id="name" class="form-control" required="">
       
-          <h4>Link to Photo Image (Required)</h4>
+          <h4>Link to Photo Image</h4>
           <input type="text" id="photo" class="form-control" required="">
+
+          <h4>Say something charming!</h4>
+          <input type="text" id="quote" class="form-control" required="">
       
           <hr>
         
@@ -39,7 +42,7 @@
                     <option selected>Choose...</option>
                     <option value="1">Strongly Agree</option>
                     <option value="2">Agree</option>
-                    <option value="3">Neutral</option>
+                    <option value="3">Have No Opinion</option>
                     <option value="4">Disagree</option>
                     <option value="5">Strongly Disagree</option>
                 </select>
@@ -54,7 +57,7 @@
                     <option selected>Choose...</option>
                     <option value="1">Strongly Agree</option>
                     <option value="2">Agree</option>
-                    <option value="3">Neutral</option>
+                    <option value="3">Have No Opinion</option>
                     <option value="4">Disagree</option>
                     <option value="5">Strongly Disagree</option>
                 </select>
@@ -69,7 +72,7 @@
                     <option selected>Choose...</option>
                     <option value="1">Strongly Agree</option>
                     <option value="2">Agree</option>
-                    <option value="3">Neutral</option>
+                    <option value="3">Have No Opinion</option>
                     <option value="4">Disagree</option>
                     <option value="5">Strongly Disagree</option>
                 </select>
@@ -84,7 +87,7 @@
                     <option selected>Choose...</option>
                     <option value="1">Strongly Agree</option>
                     <option value="2">Agree</option>
-                    <option value="3">Neutral</option>
+                    <option value="3">Have No Opinion</option>
                     <option value="4">Disagree</option>
                     <option value="5">Strongly Disagree</option>
                 </select>
@@ -99,7 +102,7 @@
                     <option selected>Choose...</option>
                     <option value="1">Strongly Agree</option>
                     <option value="2">Agree</option>
-                    <option value="3">Neutral</option>
+                    <option value="3">Have No Opinion</option>
                     <option value="4">Disagree</option>
                     <option value="5">Strongly Disagree</option>
                 </select>
@@ -114,7 +117,7 @@
                     <option selected>Choose...</option>
                     <option value="1">Strongly Agree</option>
                     <option value="2">Agree</option>
-                    <option value="3">Neutral</option>
+                    <option value="3">Have No Opinion</option>
                     <option value="4">Disagree</option>
                     <option value="5">Strongly Disagree</option>
                 </select>
@@ -129,7 +132,7 @@
                     <option selected>Choose...</option>
                     <option value="1">Strongly Agree</option>
                     <option value="2">Agree</option>
-                    <option value="3">Neutral</option>
+                    <option value="3">Have No Opinion</option>
                     <option value="4">Disagree</option>
                     <option value="5">Strongly Disagree</option>
                 </select>
@@ -144,7 +147,7 @@
                     <option selected>Choose...</option>
                     <option value="1">Strongly Agree</option>
                     <option value="2">Agree</option>
-                    <option value="3">Neutral</option>
+                    <option value="3">Have No Opinion</option>
                     <option value="4">Disagree</option>
                     <option value="5">Strongly Disagree</option>
                 </select>
@@ -159,7 +162,7 @@
                     <option selected>Choose...</option>
                     <option value="1">Strongly Agree</option>
                     <option value="2">Agree</option>
-                    <option value="3">Neutral</option>
+                    <option value="3">Have No Opinion</option>
                     <option value="4">Disagree</option>
                     <option value="5">Strongly Disagree</option>
                 </select>
@@ -174,7 +177,7 @@
                     <option selected>Choose...</option>
                     <option value="1">Strongly Agree</option>
                     <option value="2">Agree</option>
-                    <option value="3">Neutral</option>
+                    <option value="3">Have No Opinion</option>
                     <option value="4">Disagree</option>
                     <option value="5">Strongly Disagree</option>
                 </select>
@@ -209,8 +212,15 @@
                 <h2 class="modal-title"><strong>Best Match</strong></h2>
               </div>
               <div class="modal-body">
-                <h2 id="match-name"></h2>
-                <img id="match-img" src="" alt="your-friend">
+                <div class="row">
+                  <div class="col-sm-6">
+                      <h2 id="match-name"></h2>
+                      <img id="match-img" src="" alt="your-friend" width="250px">
+                  </div>
+                  <div class="col-sm-6">
+                      <h2>"<em><span id="match-quote"></span></em>"</h2>
+                  </div>
+                </div>  
               </div>
               <div class="modal-footer">
                 <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
@@ -222,7 +232,6 @@
       
         <script type="text/javascript">
           
-          // Capture the form inputs
           $("#submit").on("click", function(event) {
             event.preventDefault();
       
@@ -237,10 +246,21 @@
       
               $(".form-control").each(function() {
       
-                if ($(this).val() === "") {
+                if ($("#name").val() === "") {
                   isValid = false;
+                }  
+                
+                if ($("#photo").val() === "" || (!$("#photo").val().includes(".jpg") && !$("#photo").val().includes(".png") && !$("#photo").val().includes(".gif") && !$("#photo").val().includes(".pdf"))) {
+                  $("#photo").val("/pic2");
                 }
+                
+                if ($("#quote").val() === "") {
+                  $("#quote").val("Hello, my new friend!");
+                }
+
+
               });
+
               return isValid;
             }
       
@@ -250,6 +270,7 @@
               var newFriend = {
                 name: $("#name").val(),
                 photo: $("#photo").val(),
+                quote: $("#quote").val(),
                 scores: [
                   $("#q1").val(),
                   $("#q2").val(),
@@ -272,11 +293,12 @@
                 // Grab the result from the AJAX post so that the best match's name and photo are displayed.
                 $("#match-name").text(data.name);
                 $("#match-img").attr("src", data.photo);
-      
-                // Show the modal with the best match
-                $("#results-modal").modal("toggle");
+                $("#match-quote").text(data.quote);
       
               });
+
+              $("#results-modal").modal("toggle");
+
             } else {
               alert("Please fill out all fields before submitting!");
             }
