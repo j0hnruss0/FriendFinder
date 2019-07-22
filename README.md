@@ -8,6 +8,6 @@ Late-stage Development: Important App logic finished, more HTML features to be t
 
 Powered with ExpressJS, PathJS, runs on Heroku
 
-### TRy "Find-A-Friend" for yourself!
+### Try "Find-A-Friend" for yourself!
 
 [Link to Heroku App](https://shrouded-refuge-14461.herokuapp.com/)
