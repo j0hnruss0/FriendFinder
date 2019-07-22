@@ -8,8 +8,23 @@
         <script src="https://code.jquery.com/jquery.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
       
-        <!-- Font Awesome Glyphicons -->
+        <!-- Font Awesome Glyphicons and Font Library Fonts-->
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
+        <link rel="stylesheet" media="screen" href="https://fontlibrary.org/face/industrial" type="text/css"/>
+        <link rel="stylesheet" media="screen" href="https://fontlibrary.org/face/minecraft" type="text/css"/>
+        <style>
+          h3 { 
+            font-family: 'IndustrialRegular'; 
+            font-weight: normal; 
+            font-style: normal;  
+          }
+
+          #survey-logo {
+            font-family: 'MinecrafterAltRegular'; 
+            font-weight: normal; 
+            font-style: normal; 
+          }
+        </style>
       
     </head>
       
@@ -17,7 +32,7 @@
       
         <div class="container">
       
-          <h2>Survey Questions</h2>
+          <h2 id="survey-logo">Survey Questions</h2>
           <hr>
       
           <h3><strong>About You</strong></h3>
@@ -34,9 +49,9 @@
         
         <!------------------- Questions start here ----------------->
             <div class="input-group mb-3">
-                <h3>Question 1:</h3>
+                <h3>Question 1: Do you consider yourself a fun-loving person who likes to party?</h3>
                 <div class="input-group-prepend">
-                    <label class="input-group-text" for="q1">Do you...</label>
+                    <label class="input-group-text" for="q1">Agree or disagree?</label>
                 </div>
                 <select class="custom-select" id="q1">
                     <option selected>Choose...</option>
@@ -49,9 +64,9 @@
             </div>
 
             <div class="input-group mb-3">
-                <h3>Question 2:</h3>
+                <h3>Question 2: Are you an adventurous thrill-seeker?</h3>
                 <div class="input-group-prepend">
-                    <label class="input-group-text" for="q2">Do you...</label>
+                    <label class="input-group-text" for="q2">Agree or disagree?</label>
                 </div>
                 <select class="custom-select" id="q2">
                     <option selected>Choose...</option>
@@ -64,9 +79,9 @@
             </div>
 
             <div class="input-group mb-3">
-                <h3>Question 3:</h3>
+                <h3>Question 3: Are you a sports fan who loves going to see the home team(s) play?</h3>
                 <div class="input-group-prepend">
-                    <label class="input-group-text" for="q3">Do you...</label>
+                    <label class="input-group-text" for="q3">Agree or disagree?</label>
                 </div>
                 <select class="custom-select" id="q3">
                     <option selected>Choose...</option>
@@ -79,9 +94,9 @@
             </div>
 
             <div class="input-group mb-3">
-                <h3>Question 4:</h3>
+                <h3>Question 4: Are you more of the easy-going type who likes to hang out and chill?</h3>
                 <div class="input-group-prepend">
-                    <label class="input-group-text" for="q4">Do you...</label>
+                    <label class="input-group-text" for="q4">Agree or disagree?</label>
                 </div>
                 <select class="custom-select" id="q4">
                     <option selected>Choose...</option>
@@ -94,9 +109,9 @@
             </div>
 
             <div class="input-group mb-3">
-                <h3>Question 5:</h3>
+                <h3>Question 5: Are you a comic fan who loves reading about or seeing his or her favorite superheroes on the big screen?</h3>
                 <div class="input-group-prepend">
-                    <label class="input-group-text" for="q5">Do you...</label>
+                    <label class="input-group-text" for="q5">Agree or disagree?</label>
                 </div>
                 <select class="custom-select" id="q5">
                     <option selected>Choose...</option>
@@ -109,9 +124,9 @@
             </div>
 
             <div class="input-group mb-3">
-                <h3>Question 6:</h3>
+                <h3>Question 6: Do you believe that people are basically good?</h3>
                 <div class="input-group-prepend">
-                    <label class="input-group-text" for="q6">Do you...</label>
+                    <label class="input-group-text" for="q6">Agree or disagree?</label>
                 </div>
                 <select class="custom-select" id="q6">
                     <option selected>Choose...</option>
@@ -124,9 +139,9 @@
             </div>
 
             <div class="input-group mb-3">
-                <h3>Question 7:</h3>
+                <h3>Question 7: If you had superpowers, would you use them to fight crime?</h3>
                 <div class="input-group-prepend">
-                    <label class="input-group-text" for="q7">Do you...</label>
+                    <label class="input-group-text" for="q7">Agree or disagree?</label>
                 </div>
                 <select class="custom-select" id="q7">
                     <option selected>Choose...</option>
@@ -139,9 +154,9 @@
             </div>
 
             <div class="input-group mb-3">
-                <h3>Question 8:</h3>
+                <h3>Question 8: On the other hand, would you use your superpowers to rule the world?</h3>
                 <div class="input-group-prepend">
-                    <label class="input-group-text" for="q8">Do you...</label>
+                    <label class="input-group-text" for="q8">Agree or disagree?</label>
                 </div>
                 <select class="custom-select" id="q8">
                     <option selected>Choose...</option>
@@ -154,9 +169,9 @@
             </div>
 
             <div class="input-group mb-3">
-                <h3>Question 9:</h3>
+                <h3>Question 9: Do you consider yourself to be a good person who does right by people?</h3>
                 <div class="input-group-prepend">
-                    <label class="input-group-text" for="q9">Do you...</label>
+                    <label class="input-group-text" for="q9">Agree or disagree?</label>
                 </div>
                 <select class="custom-select" id="q9">
                     <option selected>Choose...</option>
@@ -169,9 +184,9 @@
             </div>
 
             <div class="input-group mb-3">
-                <h3>Question 10:</h3>
+                <h3>Question 10: Are you looking for a rich, fufilling friendship that lasts a lifetime?</h3>
                 <div class="input-group-prepend">
-                    <label class="input-group-text" for="q10">Do you...</label>
+                    <label class="input-group-text" for="q10">Agree or disagree?</label>
                 </div>
                 <select class="custom-select" id="q10">
                     <option selected>Choose...</option>
@@ -208,7 +223,7 @@
             <!-- Modal content-->
             <div class="modal-content">
               <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal">×</button>
+                <button type="button" class="close reset-button" data-dismiss="modal">×</button>
                 <h2 class="modal-title"><strong>Best Match</strong></h2>
               </div>
               <div class="modal-body">
@@ -223,7 +238,7 @@
                 </div>  
               </div>
               <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-default reset-button" data-dismiss="modal">Close</button>
               </div>
             </div>
       

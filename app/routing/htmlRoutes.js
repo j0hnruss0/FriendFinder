@@ -18,6 +18,10 @@ module.exports = function(app) {
         res.sendFile(path.join(__dirname, "../public/images/no-pic.png"));
     });
 
+    app.get("/bg", function(req, res) {
+        res.sendFile(path.join(__dirname, "../public/images/background.jpg"));
+    });
+
 }
 
 
